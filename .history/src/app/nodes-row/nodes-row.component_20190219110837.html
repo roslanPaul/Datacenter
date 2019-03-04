@@ -1,0 +1,4 @@
+<th scope="row">{{node.name}}</th>
+<td [class.table-danger]="isDanger('cpu')">
+  {{node.cpu.used}}/{{node.cpu.available}}
+</td>

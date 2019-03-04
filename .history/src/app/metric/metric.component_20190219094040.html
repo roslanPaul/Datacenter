@@ -1,0 +1,26 @@
+<div class="card card-block">
+  <div class="card-body">
+    <nav class="navbar navbar-dark bg-primary mb-1" [ngClass]="{'bg-danger': isDanger(), 'bg-success' : isDanger() }">
+      <h1 class="navbar-brand mb-0">{{ tittle }}</h1>
+    </nav>
+    <div class="row">
+      <app-metric class="col-sm-6">
+        [used]="cpu.used"
+        [available]="cpu.available"
+        [title]="'CPU'"
+        [description]="'utilisation des coeurs du CPU'"
+      </app-metric>
+      <app-metric class="col-sm-6">
+        [used]="mem.used"
+        [available]="mem.available"
+        [title]="'Memory'"
+        [description]="'utilisation de la memoire en GB'"
+      </app-metric>
+    </div>
+    <h4 class="card-title">{{used}} / {{available}} ({{used / available | percent:'1.0-2'}})</h4>
+    <p class="card-text">
+      {{description}}
+    </p>
+    <ngb-progressbar [value]="value" [max]="max" [type]="isDanger() ? 'danger' : 'success'"></ngb-progressbar>
+  </div>
+</div>
